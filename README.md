@@ -1,10 +1,11 @@
 # html-jumper README
 
-This is the README for your extension "html-jumper". After writing up a brief description, we recommend including the following sections.
+This is a Visual Studio Code extension that enhances navigation between HTML @click handlers and their corresponding JavaScript functions. 
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+* Click-to-Definition: Quickly navigate from @click attributes in HTML to their function definitions in JavaScript files.
+* Find Callers: Right-click on a JavaScript function to find all HTML that call this function via @click.
 
 For example if there is an image subfolder under your extension project workspace:
 

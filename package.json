@@ -3,13 +3,20 @@
   "displayName": "HTML Jumper",
   "description": "Jump between HTML handler and JavaScript func",
   "version": "0.0.1",
+  "publisher": "1een",
   "engines": {
     "vscode": "^1.91.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cracker999999/html-jumper"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./extension.js",
   "contributes": {
     "commands": [{
