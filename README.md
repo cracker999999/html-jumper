@@ -1,4 +1,4 @@
-# html-jumper README
+# README
 
 This is a Visual Studio Code extension that enhances navigation between HTML @click handlers and their corresponding JavaScript functions. 
 

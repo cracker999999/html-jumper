@@ -1,8 +1,8 @@
 {
   "name": "html-jumper",
-  "displayName": "HTML Jumper",
+  "displayName": "Click to Definition",
   "description": "Jump between HTML handler and JavaScript func",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "1een",
   "engines": {
     "vscode": "^1.91.0"
@@ -15,14 +15,14 @@
     "url": "https://github.com/cracker999999/html-jumper"
   },
   "activationEvents": [
-    "onStartupFinished"
+    "onStartupFinished",
+    "onLanguage:html",
+    "onLanguage:javascript",
+    "onLanguage:xml"
   ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "html-jumper.helloWorld",
-      "title": "Hello World"
-    }]
+    
   },
   "scripts": {
     "lint": "eslint .",
