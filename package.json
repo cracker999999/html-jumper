@@ -2,7 +2,7 @@
   "name": "html-jumper",
   "displayName": "Click to Definition",
   "description": "Jump between HTML handler and JavaScript func",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "1een",
   "engines": {
     "vscode": "^1.91.0"

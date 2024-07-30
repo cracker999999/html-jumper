@@ -16,7 +16,7 @@ function activate(context) {
 	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "html-jumper" is now active!');
 
-	let disposable = vscode.languages.registerDefinitionProvider(['html', 'xml'], {
+	let disposable = vscode.languages.registerDefinitionProvider(['html', 'xml', 'js'], {
         provideDefinition(document, position, token) {
             const line = document.lineAt(position);
             let clickMatch;
@@ -26,11 +26,19 @@ function activate(context) {
             }
             else
             {
-                clickMatch = line.text.match(/@click="(\w+)(\(.*?\))?"/);
+                clickMatch = line.text.match(/@click="(\w+)(\(.*?\))?"|onclick="(\w+)(\(.*?\))?"/);
             }
                         
             if (clickMatch) {
-                const functionName = clickMatch[1];
+                var functionName = clickMatch[1];
+                if(functionName === undefined)
+                {
+                    functionName = clickMatch[3];
+                }
+                if(functionName === undefined)
+                {
+                    console.warn("not found func");
+                }
 				// console.log(functionName);
                 // const jsFiles = findJsFiles(path.dirname(document.fileName));
                 const jsFiles = findFiles(path.dirname(document.fileName), '.js');
@@ -42,7 +50,7 @@ function activate(context) {
 					const functionMatch = findFunctionDefinition(content, functionName);
                     
                     if (functionMatch) {
-						console.log("成功跳转 "+functionName);
+						console.log("jump to func: "+functionName);
                         const functionPosition = content.substr(0, functionMatch.index).split('\n').length;
 						// console.log(functionPosition);
                         return new vscode.Location(vscode.Uri.file(jsFile), new vscode.Position(functionPosition, 0));
